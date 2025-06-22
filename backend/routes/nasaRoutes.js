@@ -15,22 +15,20 @@ router.get("/image-proxy", async (req, res) => {
   }
 
   try {
-    const response = await axios({
-      method: "GET",
-      url,
-      responseType: "stream", // Return as a stream (to pipe image directly)
-      maxRedirects: 5, // Follow redirects (important for old NASA links)
+    const response = await axios.get(url, {
+      responseType: "arraybuffer",
+      maxRedirects: 5,
       headers: {
-        "User-Agent": "Mozilla/5.0", // Some servers reject unknown clients
+        "User-Agent": "Mozilla/5.0",
         "Accept": "image/*",
       },
     });
 
-    // Set correct content type and pipe image stream to the browser
-    res.setHeader("Content-Type", response.headers["content-type"] || "image/jpeg");
-    response.data.pipe(res);
+    const contentType = response.headers["content-type"] || "image/jpeg";
+    res.setHeader("Content-Type", contentType);
+    res.send(response.data);
   } catch (err) {
-    console.error("Image Proxy Error:", err.message);
+    console.error("🛑 Image Proxy Error:", err.message);
     res.status(500).send("Failed to fetch image");
   }
 });
