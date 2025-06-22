@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import "../styles/epic.css";
+import "../styles/Epic.css";
 import earthRotating from "../assets/epic/earth-rotating.gif";
 
 const Epic = () => {

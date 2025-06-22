@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/apod.css";
+import "../styles/Apod.css";
 
 const Apod = () => {
   const [apod, setApod] = useState(null);
