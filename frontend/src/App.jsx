@@ -15,10 +15,11 @@ function App() {
         </nav>
 
         <div className="app-content">
-          <Routes>
+         <Routes>
+            <Route path="/" element={<Apod />} /> {/* <- default landing page */}
             <Route path="/apod" element={<Apod />} />
             <Route path="/mars" element={<MarsGallery />} />
-            <Route path="/epic" element={<Epic />} /> {/* ✅ New */}
+            <Route path="/epic" element={<Epic />} />
           </Routes>
         </div>
       </div>
