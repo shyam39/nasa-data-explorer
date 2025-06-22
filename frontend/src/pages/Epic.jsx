@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import "../styles/Epic.css";
 import earthRotating from "../assets/epic/earth-rotating.gif";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 const Epic = () => {
   const [date, setDate] = useState("");
@@ -19,7 +21,7 @@ const Epic = () => {
     }
 
     try {
-      const res = await axios.get("http://localhost:5000/api/nasa/epic", {
+     const res = await axios.get(`${API_BASE_URL}/nasa/epic`, {
         params: { date },
       });
 
@@ -60,7 +62,7 @@ const Epic = () => {
       <div className="epic-gallery">
         {images.map((img) => {
           const imgUrl = formatImageUrl(img);
-          const proxyUrl = `http://localhost:5000/api/nasa/image-proxy?url=${encodeURIComponent(imgUrl)}`;
+          const proxyUrl = `${API_BASE_URL}/nasa/image-proxy?url=${encodeURIComponent(imgUrl)}`;
           return (
             <div key={img.identifier} className="epic-card">
               <img

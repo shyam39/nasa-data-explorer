@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/Apod.css";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const Apod = () => {
   const [apod, setApod] = useState(null);
@@ -10,9 +11,10 @@ const Apod = () => {
   const fetchApod = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:5000/api/nasa/apod", {
-        params: { date },
-      });
+     const res = await axios.get(`${API_BASE_URL}/nasa/epic`,
+       { params: { date }
+     });
+
       setApod(res.data);
     } catch (err) {
       console.error("Failed to fetch APOD:", err.message);

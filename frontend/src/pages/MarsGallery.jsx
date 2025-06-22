@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/marsgallery.css";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 import CuriosityImg from "../assets/rovers/curiosity.jpg";
 import OpportunityImg from "../assets/rovers/opportunity.jpg";
@@ -25,10 +26,9 @@ const MarsGallery = () => {
 
     const fetchManifest = async () => {
       try {
-        const res = await axios.get(
-          `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}`,
-          { params: { api_key: NASA_API_KEY } }
-        );
+        const res = await axios.get(`${API_BASE_URL}/nasa/epic`,
+          { params: { date }
+       });
 
         const manifest = res.data.photo_manifest;
         const dates = manifest.photos.map((p) => p.earth_date);
