@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MarsGallery from "./pages/MarsGallery";
-import APOD from "./pages/APOD";
+import Apod from './pages/Apod';
 import Epic from "./pages/Epic";
 import "./styles/app.css";
 
@@ -16,7 +16,7 @@ function App() {
 
         <div className="app-content">
           <Routes>
-            <Route path="/apod" element={<APOD />} />
+            <Route path="/apod" element={<Apod />} />
             <Route path="/mars" element={<MarsGallery />} />
             <Route path="/epic" element={<Epic />} /> {/* ✅ New */}
           </Routes>
