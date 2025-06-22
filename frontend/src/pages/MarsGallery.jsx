@@ -26,11 +26,9 @@ const MarsGallery = () => {
 
     const fetchManifest = async () => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/nasa/epic`,
-          { params: { date }
-       });
-
-        const manifest = res.data.photo_manifest;
+       const res = await axios.get(`${API_BASE_URL}/nasa/mars/manifest/${rover}`);
+       
+         const manifest = res.data;
         const dates = manifest.photos.map((p) => p.earth_date);
         const cameraSet = new Set();
 
@@ -65,9 +63,8 @@ const MarsGallery = () => {
       const params = { rover, date };
       if (camera) params.camera = camera;
 
-      const res = await axios.get("http://localhost:5000/api/nasa/mars", {
-        params,
-      });
+      const res = await axios.get(`${API_BASE_URL}/nasa/mars`, { params });
+
 
       const rawPhotos = res.data;
       const filteredPhotos = rawPhotos.filter(
@@ -88,7 +85,7 @@ const MarsGallery = () => {
   };
 
   const getImageSrc = (photo) => {
-    return `http://localhost:5000/api/nasa/image-proxy?url=${encodeURIComponent(photo.img_src)}`;
+   return `${API_BASE_URL}/nasa/image-proxy?url=${encodeURIComponent(photo.img_src)}`;
   };
 
   return (

@@ -11,7 +11,7 @@ const Apod = () => {
   const fetchApod = async () => {
     setLoading(true);
     try {
-     const res = await axios.get(`${API_BASE_URL}/nasa/epic`,
+     const res = await axios.get(`${API_BASE_URL}/nasa/apod`,
        { params: { date }
      });
 
