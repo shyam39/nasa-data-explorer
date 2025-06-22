@@ -1,64 +1,89 @@
 # 🚀 NASA Data Explorer
 
-This is my NASA data explorer project built with React, Node.js, and Express. It shows:
+This is my full-stack NASA Data Explorer project built with **React**, **Node.js**, and **Express**. It allows users to explore:
 
 - 🪐 Astronomy Picture of the Day (APOD)
-- 🚗 Mars Rover Gallery
-- 🌍 Earth (EPIC) Image Viewer
+- 🚗 Mars Rover Image Gallery
+- 🌍 Earth Polychromatic Imaging Camera (EPIC) Viewer
 
 ## 🧠 Features
 
-- Frontend in **React**
-- Backend in **Express.js**
-- Data fetched using **NASA Open APIs**
-- Clean and responsive UI using plain CSS
-- Date and camera filters for Mars Rover
-- Modal photo viewer, loading states, and error handling
+- ⚛️ Frontend in React
+- 🔧 Backend in Express.js
+- 📡 Data via NASA Open APIs
+- 🎛️ Filters for rover, date, and camera
+- 💡 Modal viewer for Mars & EPIC photos
+- 📱 Fully responsive and clean UI
 
-## 📁 Folder Structure
+## 🌐 Live Project
 
-- `frontend/` → React app
-- `backend/` → Express API proxy and routing
-- `routes/` → Handles APOD, Mars Rover, EPIC
-- `components/` → Stats cards, gallery, modal
+- **Frontend:** [https://nasa-data-explorer-ten.vercel.app](https://nasa-data-explorer-ten.vercel.app)
+- **Backend:** [https://nasa-api-yf3n.onrender.com](https://nasa-api-yf3n.onrender.com)
+- **GitHub Repo:** [github.com/shyam39/nasa-data-explorer](https://github.com/shyam39/nasa-data-explorer)
 
-## 🌐 Live Demo
+## 🧪 Sample API Endpoints
 
-- Frontend: [https://nasa-data-explorer-ten.vercel.app/](#)
-- Backend: [https://nasa-api-yf3n.onrender.com](#)
-- End points
-• [https://nasa-api-yf3n.onrender.com/api/nasa/apod]
-• [https://nasa-api-yf3n.onrender.com/api/nasa/mars?rover=curiosity&date=2020-01-01]
-• [https://nasa-api-yf3n.onrender.com/api/nasa/epic?date=2024-06-01]
+- `GET /api/nasa/apod`  
+  → Astronomy Picture of the Day  
+- `GET /api/nasa/mars?rover=curiosity&date=2020-01-01`  
+  → Mars rover photos for specific date  
+- `GET /api/nasa/epic?date=2024-06-01`  
+  → EPIC Earth images from specific date  
 
-## 🛠 Prerequisites
+## 🗂️ Project Structure
 
-Before running the project locally, make sure you have:
+```
+nasa-data-explorer/
+├── frontend/       # React App
+├── backend/        # Express Server
+├── routes/         # NASA API Routes (APOD, Mars, EPIC)
+├── components/     # Modal, Cards, Stats
+└── .env            # API keys (not committed)
+```
 
-- [Node.js](https://nodejs.org/) (v16 or higher recommended)
-- npm (comes with Node.js)
-- A code editor like [Visual Studio Code](https://code.visualstudio.com/)
+## 🛠️ Getting Started
 
-## 📦 Installation
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16+ recommended)
+- npm (Node Package Manager)
+- A NASA API key from [api.nasa.gov](https://api.nasa.gov/)
+
+### Local Setup
 
 ```bash
 git clone https://github.com/shyam39/nasa-data-explorer.git
 cd nasa-data-explorer
 
-## For frontend
-cd frontend
-npm install
-npm run dev
-
-## For backend
+# Backend setup
 cd backend
 npm install
+# Create a .env file with:
+# NASA_API_KEY=your_api_key
 npm start
 
-Make sure to create a .env file in the backend folder with: NASA_API_KEY=your_key
+# Frontend setup
+cd ../frontend
+npm install
+# Create a .env file with:
+# VITE_API_BASE_URL=https://nasa-api-yf3n.onrender.com/api
+# VITE_NASA_API_KEY=your_api_key
+npm run dev
+```
 
-🛰️ APIs Used
-NASA APOD
-NASA Mars Rover Photos
-NASA EPIC Earth 
+## 📦 Technologies Used
+
+- React + Vite
+- Express.js
+- Axios
+- NASA Open APIs
+- Render (backend deployment)
+- Vercel (frontend deployment)
+
+---
+
+### 👨‍💻 Author
+
+**Shyam NSG**  
+GitHub: [@shyam39](https://github.com/shyam39)
+
 ---
