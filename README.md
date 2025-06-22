@@ -24,8 +24,12 @@ This is my NASA data explorer project built with React, Node.js, and Express. It
 
 ## 🌐 Live Demo
 
-- Frontend: [https://nasa-explorer.vercel.app](#)
-- Backend: [https://nasa-api.onrender.com](#)
+- Frontend: [https://nasa-data-explorer-ten.vercel.app/](#)
+- Backend: [https://nasa-api-yf3n.onrender.com](#)
+- End points
+• [https://nasa-api-yf3n.onrender.com/api/nasa/apod]
+• [https://nasa-api-yf3n.onrender.com/api/nasa/mars?rover=curiosity&date=2020-01-01]
+• [https://nasa-api-yf3n.onrender.com/api/nasa/epic?date=2024-06-01]
 
 ## 🛠 Prerequisites
 
@@ -57,8 +61,4 @@ Make sure to create a .env file in the backend folder with: NASA_API_KEY=your_ke
 NASA APOD
 NASA Mars Rover Photos
 NASA EPIC Earth 
-
-🙌 Credits
-Thanks to NASA Open APIs.
-
 ---
