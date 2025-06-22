@@ -8,6 +8,10 @@ const marsRoutes = require("./routes/marsRoutes");
 const app = express();
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("🚀 NASA API is live!");
+});
+
 // All NASA-related routes including APOD and image-proxy
 app.use("/api/nasa", nasaRoutes);
 

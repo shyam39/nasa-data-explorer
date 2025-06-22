@@ -3,7 +3,7 @@ const axios = require("axios");
 const router = express.Router();
 
 /**
- * 🔁 Image Proxy
+ * Image Proxy
  * This route fetches an image from any given URL and returns it back to the browser.
  * Helps bypass CORS issues or broken image links (especially old rover links).
  */
