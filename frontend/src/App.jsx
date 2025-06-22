@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MarsGallery from "./pages/MarsGallery";
 import Apod from './pages/Apod';
 import Epic from "./pages/Epic";
-import "./styles/app.css";
+import "./styles/App.css";
 
 function App() {
   return (
