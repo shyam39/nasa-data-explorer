@@ -222,8 +222,53 @@ body {
   animation: spin 0.9s linear infinite;
   margin: 2rem auto;
 }
+/* Common fix for mobile alignment */
+.mars-gallery{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.mars-photo-card{
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1.5rem;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.mars-photo-card img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+.mars-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.mars-photo-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.mars-photo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
 }

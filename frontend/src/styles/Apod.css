@@ -57,9 +57,18 @@
 }
 
 .apod-details {
+ font-size: 1rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  text-align: justify;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
   margin-top: 1rem;
-  text-align: left;
-  font-size: 0.95rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 .apod-loader {
@@ -100,4 +109,30 @@
     transform: rotate(360deg);
   }
 }
+.apod-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  text-align: center;
+}
+
+.apod-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.apod-text {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+@media (max-width: 480px) {
+  .apod-text {
+    font-size: 13px;
+  }
+}
+
 

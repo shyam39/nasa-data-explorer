@@ -11,8 +11,9 @@
 .rover-charts {
    display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 3rem;
   justify-content: center;
+   align-items: stretch;
 }
 
 .chart-block {

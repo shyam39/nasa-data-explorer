@@ -103,7 +103,7 @@ const RoverStats = ({ rover }) => {
         </div>
 
         {/* Pie Chart: Camera usage */}
-        <div className="chart-block pie-chart" style={{ marginTop: "3rem" }}>
+        <div className="chart-block pie-chart">
           <h3 style={{ marginBottom: "1.2rem" }}>Camera Usage</h3>
           <ResponsiveContainer width="100%" height={320}>
             <PieChart>

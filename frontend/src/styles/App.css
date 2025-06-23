@@ -46,10 +46,18 @@
   transition: color 0.2s ease;
 }
 
+
 .nav-link:hover {
   color: #ffffff;
 }
 
 .app-content {
   padding: 2rem;
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
 }
