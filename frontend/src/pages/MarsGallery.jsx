@@ -3,13 +3,17 @@ import axios from "axios";
 import "../styles/marsgallery.css";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
+// Rover images
 import CuriosityImg from "../assets/rovers/curiosity.jpg";
 import OpportunityImg from "../assets/rovers/opportunity.jpg";
 import SpiritImg from "../assets/rovers/spirit.jpg";
+
+// API key & stats component
 import { NASA_API_KEY } from "../config/api";
 import RoverStats from "../components/RoverStats";
 
 const MarsGallery = () => {
+  // State declarations
   const [photos, setPhotos] = useState([]);
   const [rover, setRover] = useState("curiosity");
   const [date, setDate] = useState("");
@@ -21,21 +25,23 @@ const MarsGallery = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // Fetch manifest data (dates and cameras) when rover changes
   useEffect(() => {
     if (rover === lastFetchedRover) return;
 
     const fetchManifest = async () => {
       try {
-       const res = await axios.get(`${API_BASE_URL}/nasa/mars/manifest/${rover}`);
-       
-         const manifest = res.data;
+        const res = await axios.get(`${API_BASE_URL}/nasa/mars/manifest/${rover}`);
+        const manifest = res.data;
+
+        // Extract valid dates and cameras
         const dates = manifest.photos.map((p) => p.earth_date);
         const cameraSet = new Set();
-
         manifest.photos.forEach((photo) => {
           photo.cameras.forEach((cam) => cameraSet.add(cam));
         });
 
+        // Update state
         setValidDates(dates);
         setAvailableCameras([...cameraSet]);
         setLastFetchedRover(rover);
@@ -54,6 +60,7 @@ const MarsGallery = () => {
     fetchManifest();
   }, [rover, lastFetchedRover]);
 
+  // Fetch photos for selected rover, date, and optional camera
   const fetchPhotos = async () => {
     if (!date) return;
     setLoading(true);
@@ -65,7 +72,7 @@ const MarsGallery = () => {
 
       const res = await axios.get(`${API_BASE_URL}/nasa/mars`, { params });
 
-
+      // Filter out invalid image URLs
       const rawPhotos = res.data;
       const filteredPhotos = rawPhotos.filter(
         (photo) =>
@@ -84,8 +91,9 @@ const MarsGallery = () => {
     }
   };
 
+  // Proxy image URLs through backend
   const getImageSrc = (photo) => {
-   return `${API_BASE_URL}/nasa/image-proxy?url=${encodeURIComponent(photo.img_src)}`;
+    return `${API_BASE_URL}/nasa/image-proxy?url=${encodeURIComponent(photo.img_src)}`;
   };
 
   return (
@@ -131,10 +139,10 @@ const MarsGallery = () => {
         </button>
       </div>
 
-      {/* Error Message */}
+      {/* Error Display */}
       {error && photos.length === 0 && <p className="mars-error">{error}</p>}
 
-      {/* Rover Cards */}
+      {/* Rover Info Cards */}
       <div className="mars-intro">
         <h2 className="intro-heading">Explore Mars with NASA's Rovers</h2>
         <p className="intro-subtext">
@@ -173,7 +181,7 @@ const MarsGallery = () => {
         </div>
       </div>
 
-      {/* Rover Stats */}
+      {/* Rover Statistics Visualization */}
       <RoverStats rover={rover} />
 
       {/* Photo Gallery */}
@@ -185,6 +193,7 @@ const MarsGallery = () => {
             <div key={photo.id} className="mars-photo-card">
               <img
                 src={getImageSrc(photo)}
+              
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.style.display = "none";
@@ -214,7 +223,7 @@ const MarsGallery = () => {
         )}
       </div>
 
-      {/* Modal View */}
+      {/* Modal View for Enlarged Photo */}
       {selectedPhoto && (
         <div className="modal-overlay" onClick={() => setSelectedPhoto(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
