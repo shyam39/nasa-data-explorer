@@ -17,7 +17,7 @@ This is my full-stack NASA Data Explorer project built with **React**, **Node.js
 
 ## 🌐 Live Project
 
-- **Frontend:** [https://nasa-data-explorer-ten.vercel.app](https://nasa-data-explorer-ten.vercel.app)
+- **Frontend:** [https://nasa-data-explorer-ten.vercel.app](https://nasa-data-explorer-ten.vercel.app/)
 - **Backend:** [https://nasa-api-yf3n.onrender.com](https://nasa-api-yf3n.onrender.com)
 - **GitHub Repo:** [github.com/shyam39/nasa-data-explorer](https://github.com/shyam39/nasa-data-explorer)
 
