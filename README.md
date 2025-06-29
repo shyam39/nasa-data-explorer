@@ -83,7 +83,7 @@ npm run dev
 
 ### 👨‍💻 Author
 
-**Shyam NSG**  
+**Shyam Nimma**  
 GitHub: [@shyam39](https://github.com/shyam39)
 
 ---
